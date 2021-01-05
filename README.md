@@ -6,4 +6,4 @@ A raspberry pi to adjust my manual thermostat with the added thrill of increased
 
 ## Questions?
 
-[mailto](mailto:mybutt)
+[Email](mailto:mybutt)
