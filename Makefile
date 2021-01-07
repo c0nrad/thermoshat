@@ -1,5 +1,5 @@
 deploy:
-	scp -r ./* pi@192.168.1.15:~/thermostat
+	scp -r ./* pi@192.168.1.15:~/thermoshat
 	# ssh pi@192.168.1.15 python3 wilfred.py
 
 ssh:
