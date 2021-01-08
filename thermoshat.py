@@ -3,7 +3,7 @@ from mpu6050 import mpu6050
 from time import sleep
 import math
 import display
-
+import metrics
 import motor
 
 TEMP_BUFFER_SIZE = 10
@@ -12,7 +12,7 @@ MOTOR_PINS = [9, 18, 15, 14]
 
 ANGLE_RANGE = 50
 
-DAY_TARGET_TEMPERATURE = 77
+DAY_TARGET_TEMPERATURE = 74
 NIGHT_TARGET_TEMPERATURE = 50
 
 MIN_ANGLE_DEGREE = 180+ANGLE_RANGE
@@ -88,6 +88,10 @@ class Thermostat:
             #     temp = round(self.get_temp())
             #     print("Temp", temp)
             #     print("Angle", self.get_angle())
+
+            if i % 10000 == 0:
+                metrics.save_metric("temperature", self.get_temp())
+                metrics.save_metric("angle", self.get_angle())
 
             if i % 200000 == 0:
                 print("[+] i=%d, Temp=%d, Angle=%d, Stepper=%d" %
